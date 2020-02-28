@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArchitectureModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ClientsExpense">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Expensetype" Type="int" Nullable="false" />
+    <Property Name="MonthDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="varchar(max)" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientsPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client" Type="int" Nullable="false" />
+    <Property Name="Month" Type="datetime" Nullable="false" />
+    <Property Name="Due Amount" Type="varchar(max)" Nullable="false" />
+    <Property Name="Paid Amount" Type="varchar(max)" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientsView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="varchar(max)" Nullable="false" />
+    <Property Name="FullPaymentuptodate" Type="date" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EshtiracksTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="float" />
+  </EntityType>
+  <EntityType Name="ExpenseListNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IconPath" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SpeedNet.dbo.tblMonth' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblMonth">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Month" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Month" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NotificationMessage" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsShow" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Image" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="ArchitectureModelStoreContainer">
+    <EntitySet Name="ClientsExpense" EntityType="Self.ClientsExpense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientsPayment" EntityType="Self.ClientsPayment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientsView" EntityType="Self.ClientsView" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EshtiracksTypes" EntityType="Self.EshtiracksTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpenseListNames" EntityType="Self.ExpenseListNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblNotification" EntityType="Self.tblNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMonth" EntityType="Self.tblMonth" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblMonth].[Id] AS [Id], 
+    [tblMonth].[Month] AS [Month]
+    FROM [dbo].[tblMonth] AS [tblMonth]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

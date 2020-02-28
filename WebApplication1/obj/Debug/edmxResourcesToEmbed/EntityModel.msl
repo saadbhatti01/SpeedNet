@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArchitectureModelStoreContainer" CdmEntityContainer="ArchitectureEntitiesModel">
+    <EntitySetMapping Name="ClientsExpenses">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsExpense">
+        <MappingFragment StoreEntitySet="ClientsExpense">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Expensetype" ColumnName="Expensetype" />
+          <ScalarProperty Name="MonthDate" ColumnName="MonthDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsPayments">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsPayment">
+        <MappingFragment StoreEntitySet="ClientsPayment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Due_Amount" ColumnName="Due Amount" />
+          <ScalarProperty Name="Paid_Amount" ColumnName="Paid Amount" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsViews">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsView">
+        <MappingFragment StoreEntitySet="ClientsView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FullPaymentuptodate" ColumnName="FullPaymentuptodate" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EshtiracksTypes">
+      <EntityTypeMapping TypeName="ArchitectureModel.EshtiracksType">
+        <MappingFragment StoreEntitySet="EshtiracksTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpenseListNames">
+      <EntityTypeMapping TypeName="ArchitectureModel.ExpenseListName">
+        <MappingFragment StoreEntitySet="ExpenseListNames">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IconPath" ColumnName="IconPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNotifications">
+      <EntityTypeMapping TypeName="ArchitectureModel.tblNotification">
+        <MappingFragment StoreEntitySet="tblNotification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NotificationMessage" ColumnName="NotificationMessage" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="ArchitectureModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMonths">
+      <EntityTypeMapping TypeName="ArchitectureModel.tblMonth">
+        <MappingFragment StoreEntitySet="tblMonth">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

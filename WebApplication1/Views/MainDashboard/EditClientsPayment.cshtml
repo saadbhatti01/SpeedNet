@@ -1,0 +1,105 @@
+﻿
+@model WebApplication1.ClientsPayment
+@{
+    ViewBag.Title = "EditClientsPayment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Success"] != null)
+{
+    <div id="Success">
+        <div class="alert alert-success fade show" role="alert">
+            @TempData["Success"]
+        </div>
+    </div>
+
+}
+@if (TempData["Error"] != null)
+{
+    <div id="Error">
+        <div class="alert alert-danger fade show" role="alert">
+            @TempData["Error"]
+        </div>
+    </div>
+}
+
+@if (TempData["Failed"] != null)
+{
+    <div id="Error">
+        <div class="alert alert-danger fade show" role="alert">
+            @TempData["Failed"]
+        </div>
+    </div>
+}
+
+@using (Html.BeginForm("UpdateClientsPayment", "MainDashboard", FormMethod.Post))
+{
+    <div class="tab-content">
+        <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title"> Update Payments </h5>
+                    <form class="">
+                        <div class="form-row">
+                            @Html.HiddenFor(m => m.Id)
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    @Html.LabelFor(m => m.Client, "Select Client")
+                                    @Html.DropDownListFor(m => m.Client, (SelectList)ViewData["ClientPayment"], "Select Client", new { @type = "text", placeholder = "Enter Location at here ", @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.Client, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @*<div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    @Html.LabelFor(m => m.Month, "Date")
+                                    @Html.TextBoxFor(m => m.Month, " ", new { @type = "Date", placeholder = "Enter Location at here ", @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.Month, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+                            <div class="col-md-6">
+                                <div class="position-relative form-group">
+                                    @Html.LabelFor(m => m.Paid_Amount, "Amount")
+                                    @Html.TextBoxFor(m => m.Paid_Amount, "", new { @type = "number", placeholder = "Enter Amount at here ", @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(m => m.Paid_Amount, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <button class="mt-2 btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Success").fadeOut();
+        }, 5000);
+    });
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Error").fadeOut();
+        }, 5000);
+    });
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Warning").fadeOut();
+        }, 5000);
+    });
+
+</script>
+
+
+
+
+
+

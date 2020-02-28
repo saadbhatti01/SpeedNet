@@ -1,0 +1,61 @@
+﻿
+.alert-successs {
+    animation: 10s fade-out;
+    animation-fill-mode: forwards;
+    padding: 15px;
+    background-color: skyblue;
+    color: white;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+@keyframes example {
+    from {
+        background-color: skyblue;
+    }
+
+    to {
+        color: transparent;
+        background-color: transparent;
+    }
+}
+
+.closebtn {
+    margin-left: 50px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+    .closebtn:hover {
+        color: grey;
+    }
+
+
+.alert-danger {
+    animation: 10s fade-out;
+    animation-fill-mode: forwards;
+    border-color: none;
+    padding: 15px;
+    background-color: red;
+    color: white;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+@keyframes danger {
+    from {
+        background-color: red;
+    }
+
+    to {
+        color: transparent;
+        background-color: transparent;
+    }
+}

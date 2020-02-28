@@ -1,0 +1,175 @@
+﻿@using System.Data
+@model DataSet
+@{
+    ViewBag.Title = "UserDashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 col-xl-6">
+        <div class="card mb-3 widget-content bg-midnight-bloom">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Expenses</div>
+                    @*<div class="widget-subheading">Last year expenses</div>*@
+                </div>
+                @if (ViewData["Expenses"] != null)
+                {
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@ViewData["Expenses"] LBP</span></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-6">
+        <div class="card mb-3 widget-content bg-arielle-smile">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Clients payments</div>
+                    @*<div class="widget-subheading">Total Clients Profit</div>*@
+                </div>
+                @if (ViewData["ClientPayment"] != null)
+                {
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span> @ViewData["ClientPayment"] LBP</span></div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-6">
+        <div class="card mb-3 widget-content bg-grow-early">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Due Amount</div>
+                    @*<div class="widget-subheading">Amount to be paid</div>*@
+                </div>
+                @if (ViewData["DueAmount"] != null)
+                {
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@ViewData["DueAmount"] LBP</span></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-6">
+        <div class="card mb-3 widget-content bg-grow-early">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Unpaid Clients</div>
+                    @*<div class="widget-subheading">Amount not paid yet!</div>*@
+                </div>
+                @if (ViewData["UnPaidClients"] != null)
+                {
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-white"><span>@ViewData["UnPaidClients"]</span></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">
+                Recent Payments
+
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Client</th>
+                            <th class="text-center">Payment for Month</th>
+                            <th class="text-center">Paid Amount</th>
+                            <th class="text-center">Due Amount</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Status</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (DataRow row in Model.Tables[0].Rows)
+                        {
+                            var da = @row["EntryDate"];
+                            DateTime date = Convert.ToDateTime(da);
+                            var Date = date.ToString("MMM-dd-yyyy");
+
+                            <tr>
+                                <td class="text-center text-muted">@row["Name"]</td>
+                                <td class="text-center text-muted">@row["PaymentMonth"]</td>
+                                <td class="text-center">@row["Paid Amount"]</td>
+                                <td class="text-center">@row["Due Amount"]</td>
+                                <td class="text-center">@Date</td>
+                                @if (@row["Due Amount"].ToString() == "0")
+                                {
+                                    <td class="text-center">
+                                        <div class="badge badge-success">Completed</div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td class="text-center">
+                                        <div class="badge badge-danger">Pending</div>
+                                    </td>
+                                }
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">
+                Recent Expenses
+
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Expense Type</th>
+                            <th class="text-center">Expense Month Date</th>
+                            <th class="text-center">Amount</th>
+                            <th class="text-center">Entry Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (DataRow row in Model.Tables[1].Rows)
+                        {
+                            var da = @row["EntryDate"];
+                            DateTime date = Convert.ToDateTime(da);
+                            var Date = date.ToString("MMM-dd-yyyy");
+                            <tr>
+                                <td class="text-center text-muted">@row["Description"]</td>
+                                <td class="text-center">@row["Month"]</td>
+                                <td class="text-center">@row["Amount"]</td>
+                                <td class="text-center">@Date</td>
+                                @*<td class="text-center">
+                                        <div class="badge badge-warning">Pending</div>
+                                    </td>*@
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

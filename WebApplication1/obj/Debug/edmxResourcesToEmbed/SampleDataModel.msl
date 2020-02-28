@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ArchitectureModelStoreContainer" CdmEntityContainer="ArchitectureEntities">
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="ArchitectureModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EshtiracksTypes">
+      <EntityTypeMapping TypeName="ArchitectureModel.EshtiracksType">
+        <MappingFragment StoreEntitySet="EshtiracksTypes">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpenseListNames">
+      <EntityTypeMapping TypeName="ArchitectureModel.ExpenseListName">
+        <MappingFragment StoreEntitySet="ExpenseListNames">
+          <ScalarProperty Name="IconPath" ColumnName="IconPath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMonth">
+      <EntityTypeMapping TypeName="ArchitectureModel.tblMonth">
+        <MappingFragment StoreEntitySet="tblMonth">
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblNotification">
+      <EntityTypeMapping TypeName="ArchitectureModel.tblNotification">
+        <MappingFragment StoreEntitySet="tblNotification">
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="NotificationMessage" ColumnName="NotificationMessage" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsView">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsView">
+        <MappingFragment StoreEntitySet="ClientsView">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="FullPaymentuptodate" ColumnName="FullPaymentuptodate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsPayment">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsPayment">
+        <MappingFragment StoreEntitySet="ClientsPayment">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Paid_Amount" ColumnName="Paid Amount" />
+          <ScalarProperty Name="Due_Amount" ColumnName="Due Amount" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientsExpense">
+      <EntityTypeMapping TypeName="ArchitectureModel.ClientsExpense">
+        <MappingFragment StoreEntitySet="ClientsExpense">
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MonthDate" ColumnName="MonthDate" />
+          <ScalarProperty Name="Expensetype" ColumnName="Expensetype" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

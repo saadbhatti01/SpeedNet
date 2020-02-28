@@ -1,0 +1,156 @@
+﻿@model WebApplication1.UserProfile
+
+@{
+    ViewBag.Title = "Login";
+    
+}
+<link rel="icon" href="~/Images/SpeedNet.ico" type="image/x-icon" />
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Login</title>
+        
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--===============================================================================================-->
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/bootstrap/css/bootstrap.min.css">
+        <!--===============================================================================================-->
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/animate/animate.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/css-hamburgers/hamburgers.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/animsition/css/animsition.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/select2/select2.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/vendor/daterangepicker/daterangepicker.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/css/util.css">
+        <link rel="stylesheet" type="text/css" href="~/css/main.css">
+
+        <link href="~/css/alert.css" rel="stylesheet" />
+        <!--===============================================================================================-->
+    </head>
+    <body>
+        
+        <div class="limiter">
+            <div class="container-login100" style="background:url('../Images/backgrounds/background1.jpg'); background-repeat:no-repeat;">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form">
+                        @if (TempData["Failed"] != null)
+                        {
+
+                            <div class="alert-danger">
+                                @TempData["Failed"]
+                            </div>
+
+                        }
+                        @if (TempData["Success"] != null)
+                        {
+
+                            <div id="Success" class="alert-success" role="alert">
+                                @TempData["Success"]
+                            </div>
+
+                        }
+                        @if (TempData["Error"] != null)
+                        {
+
+                            <div id="Error" class="alert-danger" role="alert">
+                                @TempData["Error"]
+                            </div>
+
+                        }
+                        <span class="login100-form-title p-b-48">
+                            <img class="" height="100" width="200" src="~/Images/1.png" alt="">
+                            @*<i class="zmdi zmdi-font"></i>*@
+                        </span>
+
+                        <br />
+                        <div class="row pl-2 pr-2">
+
+                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", @class = "form-control", @Required = "required" })
+
+
+                        </div>
+                        <br />
+                        <div class="row pl-2 pr-2">
+
+
+                            @Html.TextBoxFor(m => m.Password, new { type = "Password", placeholder = "Password", @class = "form-control", @Required = "required" })
+
+
+                        </div>
+                        <br />
+                        <div class="row ">
+                            
+                            <a href="~/Account/ForgetPassword" class="text-white">Forgot Password?</a>
+                        </div>
+
+                        <br />
+                        <input type="submit" class="btn btn-dark form-control" style="background-color:red!important" value="Login" />
+                        <br /><br />
+
+                        <div class="text-center text-white">
+                            SPEED-NET &copy; @DateTime.Now.Year
+                        </div>
+
+                        @*<div class="text-center p-t-115">
+            <span class="txt1">
+                Don’t have an account?
+            </span>
+
+            <a class="txt2" href="#">
+                Sign Up
+            </a>
+        </div>*@
+                    </form>
+            </div>
+            </div>
+        </div>
+
+        <div id="dropDownSelect1"></div>
+
+        <!--===============================================================================================-->
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/daterangepicker/moment.min.js"></script>
+        <script src="vendor/daterangepicker/daterangepicker.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/countdowntime/countdowntime.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/main.js"></script>
+
+
+
+
+    </body>
+</html>
+}
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Success").fadeOut();
+        }, 10000);
+    });
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Error").fadeOut();
+        }, 10000);
+    });
+   
+</script>
+
